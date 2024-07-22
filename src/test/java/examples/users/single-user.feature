@@ -24,6 +24,12 @@ Feature: ReqRes API Test for Getting User with ID 2
       }
     }
     """
+  Scenario: Get user with ID 3
+    Given path 'api/users/3'
+    When method GET
+    Then status 200
+    * print response
+    And match response == read('../json/expectedResponseUserID3.json')
 
   Scenario: Validate response schema
     Given path 'api/users/2'
